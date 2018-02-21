@@ -1,40 +1,63 @@
-using System;
+﻿using System;
 
 public class Program
 {
-    public static string playerTurn = "X";
-    public static string[][] board = new string[][]
+    static string playerTurn = "X";
+    static string[][] board = new string[][]
     {
         new string[] {" ", " ", " "},
         new string[] {" ", " ", " "},
         new string[] {" ", " ", " "}
-     };
+    };
 
     public static void Main()
     {
-        do 
+        do
         {
             DrawBoard();
             GetInput();
 
-        } while (!CheckForWin() && !CheckForTie())
+        } while (!CheckForWin() && !CheckForTie());
 
-        // leave this command at the end so your program does not close automatically
-        Console.ReadLine();
+        //Console.ReadLine(); // keep the console window open until you press `enter`
     }
 
     public static void GetInput()
     {
+        int row = 0, column = 0;
+        bool result = false;
+
         Console.WriteLine("Player " + playerTurn);
-        Console.WriteLine("Enter Row:");
-        int row = Int32.Parse(Console.ReadLine());
-        Console.WriteLine("Enter Column:");
-        int column = Int32.Parse(Console.ReadLine());
+
+        while (!result)
+        {
+            Console.WriteLine("Enter Row:");
+            result = int.TryParse(Console.ReadLine(), out row);
+            if (!result)
+            {
+                Console.WriteLine("Your input was invalid! Try again.");
+            }
+        }
+
+        result = false; // reset to default value before reusing it below
+
+        while (!result)
+        {
+            Console.WriteLine("Enter Column:");
+            result = int.TryParse(Console.ReadLine(), out column);
+            if (!result)
+            {
+                Console.WriteLine("Your input was invalid! Try again.");
+            }
+        }
+
+        // Draw on board
+        board[row][column] = "X";
     }
 
     public static void PlaceMark(int row, int column)
     {
-       // your code goes here
+        // your code goes here
     }
 
     public static bool CheckForWin()
@@ -50,12 +73,12 @@ public class Program
 
         return false;
     }
-    
+
     public static bool HorizontalWin()
     {
-       // your code goes here
+        // your code goes here
 
-       return false;
+        return false;
     }
 
     public static bool VerticalWin()
