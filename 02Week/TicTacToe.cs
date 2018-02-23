@@ -67,7 +67,8 @@ public class Program
             }
         }
 
-        Coordinate coor = slot.GetValueOrDefault(input);
+        Coordinate coor;
+        slot.TryGetValue(input, out coor);
 
         PlaceMark(coor.Row, coor.Column);
 
@@ -112,7 +113,7 @@ public class Program
                 if (column != "X" && column != "O")
                 {
                     // there are slots left
-                    Console.WriteLine($" {column} ");
+                    //Console.WriteLine($" {column} ");
                     openSlots++;
                 }
             }
