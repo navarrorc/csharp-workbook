@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 public class Program
 {
@@ -6,12 +6,12 @@ public class Program
     {
         Console.WriteLine("What's the word?");
         string word = Console.ReadLine();
-        Console.WriteLine(TranslateWord(word));
+        Console.WriteLine(Translator.Translate(word));
         Console.ReadLine();
     }
-    
-    public static string TranslateWord(string word)
-    {
-       // your code goes here
-    }
+
+    //public static string TranslateWord(string word)
+    //{
+    //   // your code goes here
+    //}
 }
