@@ -3,12 +3,28 @@ using System.Collections.Generic;
 
 public class Program
 {
-    public static Dictionary<string, List<int>> stacks = new Dictionary<string, List<int>>()
+    // Fields
+    //private static Dictionary<string, List<int>> stacks = new Dictionary<string, List<int>>()
+    //{
+    //    { "a", new List<int>() {4, 3, 2, 1} },
+    //    { "b", new List<int>() {} },
+    //    { "c", new List<int>() {} }
+    //};
+    static Dictionary<string, List<int>> stacks;
+
+    // Properties
+    // ...
+
+    // Methods
+    static Program()
     {
-        { "a", new List<int>() {4, 3, 2, 1} },
-        { "b", new List<int>() {} },
-        { "c", new List<int>() {} }
-    };
+        // Constructor
+        stacks = new Dictionary<string, List<int>>();
+        stacks.Add("a", new List<int>() { 4, 3, 2, 1 });
+        stacks.Add("b", new List<int>() { });
+        stacks.Add("c", new List<int>() { });
+
+    }
 
     public static void Main()
     {
