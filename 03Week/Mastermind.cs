@@ -125,6 +125,10 @@ public class Program
         for (var i = 0; i < board.Length; i++)
         {
             Console.WriteLine("|" + String.Join("|", board[i]));
+
+            char[] myArray = new char[] { 'a', 'b', 'c' };
+
+            string temp = myArray.ToString();
         }
     }
 
