@@ -93,15 +93,15 @@ public class Program
 
                 }
             }
-            else
+            else if (_command != "exit")
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid Command! Please try gain.");
+                Console.WriteLine($"`{_command}` is NOT a valid command! Please try gain.");
                 Console.ResetColor();
             }
-
-
         }
+        Console.WriteLine("You exited the StopWatch application successfully.");
+        Console.ReadLine();
     }
 }
 
