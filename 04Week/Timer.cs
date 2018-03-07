@@ -8,11 +8,14 @@ public class Program
     private static string _command;
 
     // Properties
-    // Nothing here as we don't want to share data with any other `classes`
+    /* Nothing here as we don't want to share data with any other classes.
+       Also, this is the class with the static void Main() Method 
+       and only the compiler instantiates/creates an object from this class. */
 
     //Methods
     static Program()
     {
+        // Constructor
         _stopWatch = new StopWatch();
     }
     public static void Main()
@@ -115,6 +118,7 @@ class StopWatch
     // Methods
     public StopWatch()
     {
+        // Constructor
         Laps = new List<TimeSpan>();
     }
 
