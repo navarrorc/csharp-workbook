@@ -12,12 +12,13 @@ public class Program
        Also, this is the class with the static void Main() Method 
        and only the compiler instantiates/creates an object from this class. */
 
-    //Methods
+    // Constructor
     static Program()
     {
-        // Constructor
         _stopWatch = new StopWatch();
     }
+
+    //Methods
     public static void Main()
     {
         bool started = false;
@@ -115,13 +116,13 @@ class StopWatch
     // Properties
     public List<TimeSpan> Laps { get; set; }
 
-    // Methods
+    // Constructors
     public StopWatch()
     {
-        // Constructor
         Laps = new List<TimeSpan>();
     }
 
+    // Methods
     public bool Start()
     {
         /* see: https://www.dotnetperls.com/datetime-format
