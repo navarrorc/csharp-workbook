@@ -82,16 +82,18 @@ public class Program
                     Console.WriteLine("No laps have been recorded.");
                     Console.ResetColor();
                 }
-
-                TimeSpan lap;
-                for (int i = 0; i < _stopwatch.Laps.Count; i++)
+                else
                 {
-                    lap = _stopwatch.Laps[i];
-                    // see: http://bit.ly/2D7nCdN
-                    Console.ForegroundColor = ConsoleColor.DarkCyan;
-                    Console.WriteLine($"{(i + 1).ToString("D2")} - {lap.ToString(@"hh\:mm\:ss")} ");
-                    Console.ResetColor();
+                    TimeSpan lap;
+                    for (int i = 0; i < _stopwatch.Laps.Count; i++)
+                    {
+                        lap = _stopwatch.Laps[i];
+                        // see: http://bit.ly/2D7nCdN
+                        Console.ForegroundColor = ConsoleColor.DarkCyan;
+                        Console.WriteLine($"{(i + 1).ToString("D2")} - {lap.ToString(@"hh\:mm\:ss")} ");
+                        Console.ResetColor();
 
+                    }
                 }
             }
             else if (_command != "exit")
