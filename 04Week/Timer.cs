@@ -171,10 +171,9 @@ class Stopwatch
         if (_startDateTime.Year != DateTime.Now.Year)
             return false; // stopwatch has not been started
 
-        Laps = new List<TimeSpan>(); // clear out the list, reinitialize
-
-        _startDateTime = new DateTime();
-        _endDateTime = new DateTime();
+        Laps = new List<TimeSpan>(); // reinitialize (reset it)
+        _startDateTime = new DateTime(); // reinitilize (reset it)
+        _endDateTime = new DateTime(); // reinitialize (reset it)
 
         return true;
     }
