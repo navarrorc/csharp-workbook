@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class Program
 {
     // Fields
-    private static StopWatch _stopWatch;
+    private static Stopwatch _stopwatch;
     private static string _command;
 
     // Properties
@@ -15,7 +15,7 @@ public class Program
     // Constructor
     static Program()
     {
-        _stopWatch = new StopWatch();
+        _stopwatch = new Stopwatch();
     }
 
     //Methods
@@ -38,7 +38,7 @@ public class Program
 
             if (_command == "start")
             {
-                started = _stopWatch.Start();
+                started = _stopwatch.Start();
 
                 if (!started)
                 {
@@ -49,7 +49,7 @@ public class Program
             }
             else if (_command == "stop")
             {
-                stopped = _stopWatch.Stop();
+                stopped = _stopwatch.Stop();
                 if (!stopped)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
@@ -60,7 +60,7 @@ public class Program
             }
             else if (_command == "reset")
             {
-                reset = _stopWatch.Reset();
+                reset = _stopwatch.Reset();
                 if (!reset)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
@@ -76,22 +76,24 @@ public class Program
             }
             else if (_command == "laps")
             {
-                if (_stopWatch.Laps.Count == 0)
+                if (_stopwatch.Laps.Count == 0)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("No laps have been recorded.");
                     Console.ResetColor();
                 }
-
-                TimeSpan lap;
-                for (int i = 0; i < _stopWatch.Laps.Count; i++)
+                else
                 {
-                    lap = _stopWatch.Laps[i];
-                    // see: http://bit.ly/2D7nCdN
-                    Console.ForegroundColor = ConsoleColor.DarkCyan;
-                    Console.WriteLine($"{(i + 1).ToString("D2")} - {lap.ToString(@"hh\:mm\:ss")} ");
-                    Console.ResetColor();
+                    TimeSpan lap;
+                    for (int i = 0; i < _stopwatch.Laps.Count; i++)
+                    {
+                        lap = _stopwatch.Laps[i];
+                        // see: http://bit.ly/2D7nCdN
+                        Console.ForegroundColor = ConsoleColor.DarkCyan;
+                        Console.WriteLine($"{(i + 1).ToString("D2")} - {lap.ToString(@"hh\:mm\:ss")} ");
+                        Console.ResetColor();
 
+                    }
                 }
             }
             else if (_command != "exit")
@@ -106,7 +108,7 @@ public class Program
     }
 }
 
-class StopWatch
+class Stopwatch
 {
     // Fields
     private DateTime _startDateTime;
@@ -117,7 +119,7 @@ class StopWatch
     public List<TimeSpan> Laps { get; set; }
 
     // Constructors
-    public StopWatch()
+    public Stopwatch()
     {
         Laps = new List<TimeSpan>();
     }
@@ -171,10 +173,9 @@ class StopWatch
         if (_startDateTime.Year != DateTime.Now.Year)
             return false; // stopwatch has not been started
 
-        Laps = new List<TimeSpan>(); // clear out the list, reinitialize
-
-        _startDateTime = new DateTime();
-        _endDateTime = new DateTime();
+        Laps = new List<TimeSpan>(); // reinitialize (reset it)
+        _startDateTime = new DateTime(); // reinitilize (reset it)
+        _endDateTime = new DateTime(); // reinitialize (reset it)
 
         return true;
     }
